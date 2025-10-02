@@ -1,0 +1,8 @@
+*~
+.build-files/*
+.DS_Store
+.env
+logs/*
+node_modules
+target/
+venv
