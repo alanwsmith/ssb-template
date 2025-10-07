@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>This Website Needs A Name</title>
     <meta property="og:title" content="This Website Needs A Name" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="description" content="" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.alanwsmith.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://www.alanwsmith.com/" />
     <meta property="og:image" content="https://www.alanwsmith.com/images/og-image.jpg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
@@ -18,7 +17,7 @@
     <link rel="manifest" href="/favicons/site.webmanifest" />
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
 
-<style>
+    <style>
 :root {
   color-scheme: light dark; /* Default: light */
   /* Color Base Variables */
@@ -1370,25 +1369,37 @@ video {
 }
 
 :root {
-  --page-visibility: hidden;
+  --load-hider: hidden;
 }
 
-.page {
-  visibility: var(--page-visibility);
+.load-hider {
+  visibility: var(--load-hider);
 }
+
+
 
     </style>
 
-<style>
+    <script>
+      setTimeout(() => { 
+        document.documentElement.style.setProperty("--load-hider", "visible");
+      }, 1100);
 
+window.BittyClass = class {
+  bittyInit() {
+    document.documentElement.style.setProperty("--load-hider", "visible");
+  }
+};    </script>
 
-</style>
   </head>
-  <body class="page">
-    <bitty-v1-rc4 data-connect="/components/page.js" class="content-wrapper">
+  <body>
+    <bitty-1-3 class="load-hider">
       <noscript>
-        NOTE: This site use JavaScript which appears to be turned off. 
-        Most content will be fine, but some things won't work.
+        <p>
+          NOTE: This site use JavaScript which appears to be turned off. 
+          Most content will be fine, but some things won't work.
+        </p>
+        <style>:root { --load-hider: visible; }</style>
       </noscript>
 
       <header class="default-wrapper xlarge-bottom-margin">
@@ -1399,7 +1410,7 @@ video {
         </div>
         <hgroup class="large-top-margin">
           <h1>A New Site</h1>
-          <div class="day_nav small-font accent-bottom-border">
+          <div class="small-font accent-bottom-border">
             With a subtitle
           </div>
         </hgroup>
@@ -1412,23 +1423,13 @@ video {
         <div class="small-font">
           <div>
           made by <a href="https://www.alanwsmith.com/">alan w smith</a>
-          </div> <a href="https://socials.alanwsmith.com/">socials</a> ~
+          </div><a href="https://socials.alanwsmith.com/">socials</a> ~
           <a href="https://links.alanwsmith.com/">other projects</a> ~
           <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
         </div>
       </footer>
-    </bitty-v1-rc4>
+    </bitty-1-3>
 
-    <script src="/components/bitty-1.0.0-rc4.min.js" type="module"></script>
-    <script>
-      setTimeout(() => { 
-        document.documentElement.style.setProperty("--page-visibility", "visible");
-      }, 1800);
-    </script>
-    <noscript>
-      <style>
-      :root { --page-visibility: visible; }
-      </style>
-    </noscript>
+    <script src="/components/bitty-1.3.0-rc1.min.js" type="module"></script>
   </body>
 </html>

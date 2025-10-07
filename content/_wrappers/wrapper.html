@@ -9,24 +9,24 @@ A new website that hopefully does something cool, but doesn't have a name yet.
 [!- set favicon_root = "/favicons" -!]
 
 [!- set og_url -!]
-https://[@ domain_no_trailing_slash @]/images/og-image.jpg
+https://[@ domain_no_trailing_slash @]/
 [!- endset -!]
 
 [!- set og_image -!]
 https://[@ domain_no_trailing_slash @]/images/og-image.jpg
 [!- endset -!]
 
-[#
+[#-
 [!- set github_source = "https://github.com/alanwsmith/" -!]
-#]
+-#]
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[@ page_title @]</title>
     <meta property="og:title" content="[@ page_title @]" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="description" content="[@ the_description @]" />
     <meta property="og:description" content="[@ the_description @]" />
@@ -39,15 +39,28 @@ https://[@ domain_no_trailing_slash @]/images/og-image.jpg
     <link rel="manifest" href="/favicons/site.webmanifest" />
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
 
-[! include "_wrappers/base-css.html" !]
-[! include "_wrappers/custom-css.html" !]
+    <style>
+    [! include "styles/_base.css" !]
+    [! include "styles/_custom.css" !]
+    </style>
+
+    <script>
+      setTimeout(() => { 
+        document.documentElement.style.setProperty("--load-hider", "visible");
+      }, 1100);
+
+[! include "_includes/script.js" !]
+    </script>
 
   </head>
-  <body class="page">
-    <bitty-v1-rc4 data-connect="/components/page.js" class="content-wrapper">
+  <body>
+    <bitty-1-3 class="load-hider">
       <noscript>
-        NOTE: This site use JavaScript which appears to be turned off. 
-        Most content will be fine, but some things won't work.
+        <p>
+          NOTE: This site use JavaScript which appears to be turned off. 
+          Most content will be fine, but some things won't work.
+        </p>
+        <style>:root { --load-hider: visible; }</style>
       </noscript>
 
       <header class="default-wrapper xlarge-bottom-margin">
@@ -64,7 +77,7 @@ https://[@ domain_no_trailing_slash @]/images/og-image.jpg
         </div>
         <hgroup class="large-top-margin">
           <h1>A New Site</h1>
-          <div class="day_nav small-font accent-bottom-border">
+          <div class="small-font accent-bottom-border">
             With a subtitle
           </div>
         </hgroup>
@@ -81,26 +94,15 @@ https://[@ domain_no_trailing_slash @]/images/og-image.jpg
           </div>
           [!- if github_source -!]
             <a href="[@ github_source @]">source</a> ~
+            [@- ' ' -@]
           [!- endif -!]
-          [@- ' ' -@]
           <a href="https://socials.alanwsmith.com/">socials</a> ~
           <a href="https://links.alanwsmith.com/">other projects</a> ~
           <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
         </div>
       </footer>
-    </bitty-v1-rc4>
+    </bitty-1-3>
 
-    <script src="/components/bitty-1.0.0-rc4.min.js" type="module"></script>
-    <script>
-      setTimeout(() => { 
-        document.documentElement.style.setProperty("--page-visibility", "visible");
-      }, 1800);
-    </script>
-    <noscript>
-      <style>
-      :root { --page-visibility: visible; }
-      </style>
-    </noscript>
+    <script src="/components/bitty-1.3.0-rc1.min.js" type="module"></script>
   </body>
 </html>
-
