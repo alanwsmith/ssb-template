@@ -1,1 +1,14 @@
-[# CSS go here #]
+.content-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.code-block {
+  background: var(--match-faded);
+  border-radius: var(--default-radius);
+  margin: var(--default-margin);
+  padding: var(--default-padding);
+}
+
