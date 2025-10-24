@@ -1939,6 +1939,7 @@ sup {
 }
 svg {
   max-width: 100%;
+  height: auto;
 }
 table {
   margin: var(--default-margin);
