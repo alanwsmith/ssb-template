@@ -12,3 +12,12 @@
   padding: var(--default-padding);
 }
 
+hgroup {
+  margin-top: var(--large-margin);
+  padding-bottom: var(--large-padding);
+}
+
+.page-subtitle {
+  color: var(--default-faded);
+  border-bottom: var(--accent-border);
+}
