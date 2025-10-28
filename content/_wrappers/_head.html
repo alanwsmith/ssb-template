@@ -1,0 +1,27 @@
+[!- set og_url -!]
+https://[@ json.data._config.site.domain_without_trailing_slash @]/
+[!- endset -!]
+
+[!- set og_image_url -!]
+https://[@ json.data._config.site.domain_without_trailing_slash -@]
+[@- json.data._config.site.og_image_rel_path -@]
+[!- endset -!]
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[@ json.data._config.site.title @]</title>
+<meta property="og:title" content="[@ json.data._config.site.title @]" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<meta name="description" content="[@ json.data._config.site.description @]" />
+<meta property="og:description" content="[@ json.data._config.site.description @]" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="[@ og_url @]" />
+<meta property="og:image" content="[@ og_image_url @]" />
+<link rel="apple-touch-icon" sizes="180x180" href="[@ json.data._config.site.favicon_root @]/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="[@ json.data._config.site.favicon_root @]/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="[@ json.data._config.site.favicon_root @]/favicon-32x32.png" />
+<link rel="manifest" href="[@ json.data._config.site.favicon_root @]/site.webmanifest" />
+<link rel="mask-icon" href="[@ json.data._config.site.favicon_root @]/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="[@ og_image_url @]">
+

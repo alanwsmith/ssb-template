@@ -1,76 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    [! include "_wrappers/support/head-tag-content.html" !]
-    
-    <style>
-    :root { --load-hider: 0; }
-    .load-hider { opacity: var(--load-hider); }
-    [! include "styles/_base.css" !]
-    [! include "styles/_custom.css" !]
-    </style>
-
-    <script>
-      setTimeout(() => { 
-        document.documentElement.style.setProperty("--load-hider", "1");
-      }, 1100);
-
-[! include "_bitty/page-functions.js" !]
-[! include "_bitty/page-class.js" !]
-    </script>
-
-    <script src="/components/bitty-3.0.0.min.js" type="module"></script>
+    [! include "_wrappers/_head.html" !]
+    [! include "styles/_main.html" !]
+    [! include "_includes/bitty-page-functions.html" !]
   </head>
   <body>
-    <noscript>
-      <p>
-        NOTE: This site use JavaScript which appears to be turned off. 
-        Most content will be fine, but some things won't work.
-      </p>
-      <style>:root { --load-hider: 1; }</style>
-    </noscript>
 
-    <bitty-3-0 class="load-hider content-wrapper">
+    [! include "_wrappers/_noscript.html" !]
 
-      <header class="default-wrapper xlarge-bottom-margin">
-        <div class="small-font">
-          from <a href="https://www.alanwsmith.com/">alan w smith</a> ~
-          [@- ' ' -@]
-          [!- if data['_config.json'].site.github_url -!]
-            <a href="[@ data['_config.json'].site.github_url @]">source</a> ~
-          [!- endif -!]
-          [@- ' ' -@]
-          <a href="https://socials.alanwsmith.com/">socials</a> ~
-          <a href="https://links.alanwsmith.com/">other projects</a> ~
-          <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
-        </div>
-        <hgroup class="large-top-margin">
-          <h1>A New Site</h1>
-          <div class="small-font accent-bottom-border">
-            With a subtitle
-          </div>
-        </hgroup>
-      </header>
+    <bitty-3-0 data-connect="/scripts/bitty-page.js" 
+      class="load-hider content-wrapper">
+
+      [! include "_wrappers/_header.html" !]
 
       <main class="default-wrapper default-flow">
-[! block main !][! endblock !]
+        [! block main !][! endblock !]
       </main>
 
-      <footer>
-        <div class="small-font">
-          <div>
-          from <a href="https://www.alanwsmith.com/">alan w smith</a>
-          </div>
-          [!- if data['_config.json'].site.github_url -!]
-            <a href="[@ data['_config.json'].site.github_url @]">source</a> ~
-            [@- ' ' -@]
-          [!- endif -!]
-          <a href="https://socials.alanwsmith.com/">socials</a> ~
-          <a href="https://links.alanwsmith.com/">other projects</a> ~
-          <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
-        </div>
-      </footer>
+      [! include "_wrappers/_footer.html" !]
+
     </bitty-3-0>
 
+    <script src="/components/bitty-3.0.0.min.js" type="module"></script>
   </body>
 </html>
