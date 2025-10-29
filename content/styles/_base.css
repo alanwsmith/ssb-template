@@ -1902,18 +1902,3 @@ video {
   max-width: 100%;
 }
 
-
-:root {
-  --svg-note-default-stroke-color: var(--primary-color);
-  --svg-note-default-fill-color: var(--primary-color);
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --svg-note-default-stroke-color: var(--primary-color);
-    --svg-note-default-fill-color: var(--primary-color);
-  }
-}
-
-
