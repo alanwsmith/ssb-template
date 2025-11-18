@@ -35,9 +35,8 @@ function url() {
   return new URL(window.location.href);
 }
 
-
 export default class {
   bittyInit() {
     setProp("--load-hider", "1");
   }
-};
+}

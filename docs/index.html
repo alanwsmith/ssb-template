@@ -1926,7 +1926,7 @@ video {
   max-width: 100%;
 }
 
-.content-wrapper {
+.layout-wrapper {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
@@ -1951,14 +1951,16 @@ hgroup {
 }
 </style>  </head>
   <body>
-    <div class="load-hider">
 <noscript>
   <p>
     NOTE: This site use JavaScript which appears to be turned off. 
     Most content will be fine, but some things won't work.
   </p>
   <style>:root { --load-hider: 1; }</style>
-</noscript>
+</noscript>    <bitty-5-1 
+      data-connect="/scripts/bitty-default.js" 
+      class="load-hider layout-wrapper">
+
 <header class="default-wrapper xlarge-bottom-margin">
   <div class="small-font">
     from <a href="https://www.alanwsmith.com/">alan w smith</a> ~ <a href="https:&#x2f;&#x2f;github.com&#x2f;alanwsmith&#x2f;">source</a> ~ <a href="https://socials.alanwsmith.com/">socials</a> ~
@@ -1967,20 +1969,14 @@ hgroup {
   </div>
 </header>
       <main class="default-wrapper">
-<bitty-4-0 
-  data-connect="/scripts/page.js" 
-  class="content-wrapper default-flow">
-
-  <hgroup>
+<hgroup>
     <h1>A New Site</h1>
     <div class="page-subtitle">
       With a subtitle
     </div>
   </hgroup>
 
-  <p>Hello, world</p>
-
-</bitty-4-0>      </main>
+  <p>Hello, world</p>      </main>
 
 <footer>
   <div class="small-font">
@@ -1991,13 +1987,13 @@ hgroup {
     <a href="https://links.alanwsmith.com/">other projects</a> ~
     <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
   </div>
-</footer>    </div>
-
-    <script src="/components/bitty-4.0.0-rc1.full.js" type="module"></script>
+</footer>
+    </bitty-5-1>
+    <script src="/components/bitty-5.1.0.min.js" type="module"></script>
     <script>
       setTimeout(() => { 
         document.documentElement.style.setProperty("--load-hider", "1");
-      }, 1100);
+      }, 1300);
     </script>
   </body>
 </html>
