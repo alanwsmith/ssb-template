@@ -3,11 +3,12 @@
   <head>
     [! include "_wrappers/_head.html" !]
     [! include "styles/_main.html" !]
-    [! include "_includes/bitty-page-functions.html" !]
   </head>
   <body>
-    <div class="load-hider">
-      [! include "_wrappers/_noscript.html" !]
+    [! include "_wrappers/_noscript.html" !]
+    <bitty-5-1 
+      data-connect="/scripts/bitty-default.js" 
+      class="load-hider layout-wrapper">
 
       [! include "_wrappers/_header.html" !]
 
@@ -16,13 +17,13 @@
       </main>
 
       [! include "_wrappers/_footer.html" !]
-    </div>
 
-    <script src="/components/bitty-4.0.0-rc1.full.js" type="module"></script>
+    </bitty-5-1>
+    <script src="/components/bitty-5.1.0.min.js" type="module"></script>
     <script>
       setTimeout(() => { 
         document.documentElement.style.setProperty("--load-hider", "1");
-      }, 1100);
+      }, 1300);
     </script>
   </body>
 </html>
