@@ -1,0 +1,8 @@
+h6 {
+  color: var(--heading-color);
+  font-size: var(--large-font);
+  font-style: var(--italic);
+  font-weight: var(--weight-400);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}

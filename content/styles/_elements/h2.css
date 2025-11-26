@@ -1,0 +1,8 @@
+h2 {
+  color: var(--heading-color);
+  border-bottom: var(--accent-border);
+  font-size: var(--xxlarge-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}

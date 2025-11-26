@@ -1,0 +1,7 @@
+h4 {
+  color: var(--heading-color);
+  font-size: var(--large-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}

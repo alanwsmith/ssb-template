@@ -1,0 +1,9 @@
+button {
+  /*
+  background-color: var(--faded-match);
+  border: var(--reverse-border);
+  border-radius: var(--xsmall-radius);
+  color: var(--reverse);
+  */
+  cursor: pointer;
+}
