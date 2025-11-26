@@ -1,0 +1,7 @@
+[!- include "styles/_includes/highlights.css" -!]
+
+[!- for f in files !]
+  [!- if f.folder == "styles/_elements" !]
+  [! include f.input_path !]
+  [!- endif !]
+[!- endfor -!]
