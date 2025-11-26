@@ -1,0 +1,344 @@
+/* TODO: Add this back in for the reset */
+
+::marker {
+  color: var(--default-color);
+}
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: var(--accent-color);
+}
+abbr {
+  color: var(--accent-color);
+  font-style: italic;
+}
+aside {
+  margin-left: 20vw;
+  font-style: italic;
+  border-left: 3px solid var(--faded-reverse-color);
+  padding: var(--default-padding);
+}
+audio {
+  border: var(--accent-border);
+}
+b {
+  font-weight: 900;
+}
+blockquote {
+  margin: var(--large-margin);
+  padding: var(--default-padding);
+  background-color: var(--faded-reverse);
+}
+button {
+  background-color: var(--faded-match);
+  border: var(--reverse-border);
+  border-radius: var(--xsmall-radius);
+  color: var(--reverse);
+  cursor: pointer;
+}
+canvas {
+  max-width: 100%;
+}
+caption {
+  caption-side: bottom;
+  padding: 10px;
+  font-weight: 900;
+}
+cite {
+  font-style: italic;
+}
+.color-names-wrapper {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+}
+data {
+  /* */
+}
+code {
+  font-size: var(--small-font);
+  padding-inline: var(--xsmall-padding);
+}
+dd {
+  margin-left: var(--default-margin);
+}
+del {
+  background-color: var(--faded-accent);
+  text-decoration: line-through;
+}
+details {
+  border: var(--faded-accent-border);
+  border-radius: var(--default-radius);
+  padding: var(--default-padding);
+}
+dfn {
+  font-style: italic;
+}
+dl {
+  /* */
+}
+dt {
+  /* */
+}
+em {
+  font-style: italic;
+}
+embed {
+  max-width: 100%;
+}
+fieldset {
+  border-radius: var(--default-radius);
+}
+figcaption {
+  background-color: var(--reverse-color);
+  color: var(--match);
+  font-size: var(--small-font);
+  padding: var(--default-padding);
+  text-align: var(--alight-center);
+}
+figure {
+  max-width: 100%;
+}
+footer {
+  color: var(--default-color);
+  font-size: var(--small-font);
+  margin-bottom: var(--default-margin);
+  margin-inline: auto;
+  margin-top: var(--xlarge-margin);
+  text-align: var(--align-center);
+  width: var(--default-width);
+}
+h1 {
+  color: var(--heading);
+  border-bottom: var(--accent-border);
+  font-size: var(--xxxlarge-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+h2 {
+  color: var(--heading);
+  border-bottom: var(--accent-border);
+  font-size: var(--xxlarge-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+h3 {
+  color: var(--heading);
+  font-size: var(--xlarge-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+h4 {
+  color: var(--heading);
+  font-size: var(--large-font);
+  font-weight: var(--weight-900);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+h5 {
+  color: var(--heading);
+  font-size: var(--large-font);
+  font-weight: var(--weight-400);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+h6 {
+  color: var(--heading);
+  font-size: var(--large-font);
+  font-style: var(--italic);
+  font-weight: var(--weight-400);
+  line-height: var(--xsmall-line-height);
+  text-wrap: balance;
+}
+header {
+  margin-bottom: var(--small-margin);
+  margin-inline: auto;
+  margin-top: var(--xsmall-margin);
+  width: var(--default-width);
+}
+hgroup {
+  /* */
+}
+hr {
+  border: none;
+  border-top: 3px double var(--faded-reverse-color);
+  color: var(--reverse-color);
+  overflow: visible;
+  text-align: var(--align-center);
+  height: 5px;
+}
+hr::after {
+  background: var(--background-color);
+  content: "§";
+  padding-inline: var(--large-padding);
+  position: relative;
+  top: -13px;
+}
+i {
+  font-style: var(--italic);
+}
+iframe {
+  max-width: 100%;
+  border: var(--accent-border);
+}
+img {
+  max-width: 100%;
+  border: var(--accent-border);
+}
+input {
+  margin: var(--xxxsmall-margin);
+}
+ins {
+  background-color: var(--faded-accent-color);
+  font-style: var(--italic);
+}
+kbd {
+  background-color: var(--faded-reverse-color);
+  border: var(--faded-reverse-color);
+  border-radius: var(--xsmall-radius);
+  font-family: monospace;
+  font-size: var(--small-font);
+  padding-inline: var(--xxsmall-padding);
+}
+label {
+  /* */
+}
+legend {
+  font-weight: var(--weight-900);
+}
+li {
+  /* */
+}
+main {
+  margin-inline: auto;
+  width: var(--default-width);
+}
+main > :where(:not(:first-child)) {
+  margin-top: var(--flow-space, var(--default-flow));
+}
+map {
+  max-width: 100%;
+}
+mark {
+  background-color: var(--faded-accent);
+}
+menu {
+  /* */
+}
+meter {
+  padding-inline: var(--default-padding);
+}
+nav {
+  /* */
+}
+object {
+  max-width: 100%;
+}
+ol {
+  /* */
+}
+output {
+  font-weight: var(--weight-900);
+}
+p {
+  /* */
+}
+picture {
+  max-width: 100%;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  overscroll-behavior-x: auto;
+  /* */
+}
+progress {
+  padding-inline: var(--small-padding);
+}
+q {
+  font-style: var(--italic);
+}
+s {
+  /* */
+}
+samp {
+  font-weight: var(--weight-900);
+}
+search {
+  padding-inline: var(--small-padding);
+}
+section {
+  /* */
+}
+select {
+  padding-inline: var(--small-padding);
+}
+small {
+  font-size: var(--xsmall-font);
+}
+span {
+  /* */
+}
+strong {
+  /* */
+}
+sub {
+  /* */
+}
+summary {
+  font-weight: var(--weight-900);
+}
+sup {
+  /* */
+}
+svg {
+  max-width: 100%;
+  height: auto;
+}
+table {
+  margin: var(--default-margin);
+}
+tbody {
+  /* */
+}
+td {
+  /* */
+}
+textarea {
+  max-width: 100%;
+}
+tfoot {
+  /* */
+}
+th {
+  font-weight: var(--weight-900);
+}
+thead {
+  /* */
+}
+time {
+  /* */
+}
+tr {
+  /* */
+}
+u {
+  text-decoration: var(--accent-faded) var(--wavy) var(--underline);
+}
+ul {
+  /* */
+}
+var {
+  font-weight: var(--weight-900);
+}
+video {
+  max-width: 100%;
+}
+
+

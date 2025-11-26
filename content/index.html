@@ -1,6 +1,6 @@
-[!- extends "_wrappers/wrapper.html" -!]
-[!- block main -!]
+[!- extends "_wrappers/main.html" -!]
 
+[!- block main -!]
   <hgroup>
     <h1>A New Site</h1>
     <div class="page-subtitle">
@@ -9,5 +9,7 @@
   </hgroup>
 
   <p>Hello, world</p>
+
+  <p>[@ example_global_var_from_vars_file  @]</p>
 
 [!- endblock -!]

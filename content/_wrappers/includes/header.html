@@ -1,9 +1,13 @@
 <header class="default-wrapper xlarge-bottom-margin">
+  <[@ bitty_tag @] 
+    data-connect="/bitty-scripts/default.js ThemeSwitcher"
+    data-location="top"
+    data-init="themeSwitcher"></[@ bitty_tag @]>
   <div class="small-font">
     from <a href="https://www.alanwsmith.com/">alan w smith</a> ~
     [@- ' ' -@]
-    [!- if json.data._config.site.github_url -!]
-      <a href="[@ json.data._config.site.github_url @]">source</a> ~
+    [!- if json._config.site.github_url -!]
+      <a href="[@ json._config.site.github_url @]">source</a> ~
     [!- endif -!]
     [@- ' ' -@]
     <a href="https://socials.alanwsmith.com/">socials</a> ~

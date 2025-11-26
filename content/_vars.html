@@ -1,0 +1,17 @@
+[!- set example_global_var_from_vars_file = "the quick brown fox" -!]
+
+[!- set og_url -!]
+https://[@ json._config.site.domain_without_trailing_slash @]/
+[!- endset -!]
+
+[!- set og_image_url -!]
+https://[@ json._config.site.domain_without_trailing_slash -@]
+[@- json._config.site.og_image_rel_path -@]
+[!- endset -!]
+
+[!- set bitty_tag = "bitty-6-0" -!]
+
+[!- set bitty_url = "https://unpkg.com/@alanwsmith/bitty@6.0.0-rc2/bitty-6.0.0-rc2.min.js" -!]
+
+[!- block wrapper -!][!- endblock -!]
+
