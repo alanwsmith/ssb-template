@@ -2,7 +2,9 @@ h1 {
   color: var(--heading-color);
   border-bottom: var(--accent-border);
   font-size: var(--xxlarge-font-size);
-  font-weight: var(--weight-900);
-  line-height: var(--xsmall-line-height);
+  font-weight: var(--font-weight-900);
+  line-height: var(--xxsmall-line-height);
+  margin-top: 2rem;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
