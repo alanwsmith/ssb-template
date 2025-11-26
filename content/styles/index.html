@@ -1,5 +1,7 @@
 [! extends "_wrappers/main.html" !]
 [! block main !]
+
+
 <h1>Style Check - h1</h1>
 <p>The quick brown fox jumps over the lazy dog</p>
 
@@ -17,5 +19,31 @@
 
 <h6>Style Check - h6</h6>
 <p>The quick brown fox jumps over the lazy dog</p>
+
+
+<style>
+.color-lines {
+  display: grid;
+  gap: 1.5rem;
+}
+</style>
+
+<div class="color-lines">
+  <div class="default-bottom-border default-color">default</div>
+  <div class="faded-default-bottom-border faded-default-color">faded-default</div>
+
+  <div class="heading-bottom-border heading-color">heading</div>
+  <div class="faded-heading-bottom-border faded-heading-color">faded-heading</div>
+
+  <div class="link-bottom-border link-color">link</div>
+  <div class="faded-link-bottom-border faded-link-color">faded-link</div>
+
+  <div class="accent-bottom-border accent-color">accent</div>
+  <div class="faded-accent-bottom-border faded-accent-color">faded-accent</div>
+
+  <div class="info-bottom-border info-color">info</div>
+  <div class="faded-info-bottom-border faded-info-color">faded-info</div>
+</div>
+
 
 [! endblock !]

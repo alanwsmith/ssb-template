@@ -880,7 +880,6 @@ main > :where(:not(:first-child)) {
 }.theme-switcher {
   display: flex;
   gap: var(--default-gap);
-  border-bottom: var(--faded-accent-border);
 }u {
   text-decoration: var(--accent-faded) var(--wavy) var(--underline);
 }ul > :where(:not(:first-child)) {

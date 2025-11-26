@@ -1,10 +1,4 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>[@ json._config.site.title @]</title>
-<meta property="og:title" content="[@ json._config.site.title @]" />
-
 <script>
-// load styles
 const baseParams = {
   "border-radius": {
     classString: `.SIZE-KEY { KEY: var(--SIZE-KEY); }`,
@@ -305,7 +299,7 @@ addSheet(cssVarsDev());
     opacity: var(--load-hider);
   }
   html {
-    color-scheme: dark light;
+    color-scheme: light dark;
     background-color: var(--background-color);
   }
   body {
@@ -321,6 +315,8 @@ addSheet(cssVarsDev());
 <link rel="stylesheet" href="/styles/main.on.css" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
+<title>[@ json._config.site.title @]</title>
+<meta property="og:title" content="[@ json._config.site.title @]" />
 <meta name="description" content="[@ json._config.site.description @]" />
 <meta property="og:description" content="[@ json._config.site.description @]" />
 <meta property="og:type" content="website" />

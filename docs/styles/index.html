@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 :root {
   --light--background-color: oklch(0.9634 0.02097 105.642);
@@ -76,13 +78,7 @@
     --info-color: var(--info-color--switch, var(--dark--info-color));
     --faded-info-color: var(--faded-info-color--switch, var(--dark--faded-info-color));
   }
-}</style><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title></title>
-<meta property="og:title" content="" />
-
-<script>
-// load styles
+}</style><script>
 const baseParams = {
   "border-radius": {
     classString: `.SIZE-KEY { KEY: var(--SIZE-KEY); }`,
@@ -383,7 +379,7 @@ addSheet(cssVarsDev());
     opacity: var(--load-hider);
   }
   html {
-    color-scheme: dark light;
+    color-scheme: light dark;
     background-color: var(--background-color);
   }
   body {
@@ -399,6 +395,8 @@ addSheet(cssVarsDev());
 <link rel="stylesheet" href="/styles/main.on.css" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
+<title></title>
+<meta property="og:title" content="" />
 <meta name="description" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -423,18 +421,20 @@ addSheet(cssVarsDev());
       data-connect="/bitty-scripts/default.js" 
       class="load-hider layout-wrapper">
 
-<header class="default-wrapper xxlarge-bottom-margin">
+<header class="small-font-size default-wrapper xxxlarge-bottom-margin large-top-margin">
+  <nav class="faded-default-bottom-border">
+    from <a href="https://www.alanwsmith.com/">alan w smith</a> ~ <a href="https:&#x2f;&#x2f;github.com&#x2f;alanwsmith&#x2f;">source</a> ~ <a href="https://socials.alanwsmith.com/">socials</a> ~
+    <a href="https://links.alanwsmith.com/">other projects</a> ~
+    <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
+  </nav>
   <bitty-6-0 
     data-connect="/bitty-scripts/default.js ThemeSwitcher"
     data-location="top"
     data-init="themeSwitcher"></bitty-6-0>
-  <div class="small-font">
-    from <a href="https://www.alanwsmith.com/">alan w smith</a> ~ <a href="https:&#x2f;&#x2f;github.com&#x2f;alanwsmith&#x2f;">source</a> ~ <a href="https://socials.alanwsmith.com/">socials</a> ~
-    <a href="https://links.alanwsmith.com/">other projects</a> ~
-    <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
-  </div>
 </header>
       <main class="default-wrapper">
+
+
 <h1>Style Check - h1</h1>
 <p>The quick brown fox jumps over the lazy dog</p>
 
@@ -452,6 +452,32 @@ addSheet(cssVarsDev());
 
 <h6>Style Check - h6</h6>
 <p>The quick brown fox jumps over the lazy dog</p>
+
+
+<style>
+.color-lines {
+  display: grid;
+  gap: 1.5rem;
+}
+</style>
+
+<div class="color-lines">
+  <div class="default-bottom-border default-color">default</div>
+  <div class="faded-default-bottom-border faded-default-color">faded-default</div>
+
+  <div class="heading-bottom-border heading-color">heading</div>
+  <div class="faded-heading-bottom-border faded-heading-color">faded-heading</div>
+
+  <div class="link-bottom-border link-color">link</div>
+  <div class="faded-link-bottom-border faded-link-color">faded-link</div>
+
+  <div class="accent-bottom-border accent-color">accent</div>
+  <div class="faded-accent-bottom-border faded-accent-color">faded-accent</div>
+
+  <div class="info-bottom-border info-color">info</div>
+  <div class="faded-info-bottom-border faded-info-color">faded-info</div>
+</div>
+
 
       </main>
 

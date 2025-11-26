@@ -62,7 +62,7 @@ export class ThemeSwitcher {
     data-send="changeTheme" 
     data-receive="syncCheckedTheme" 
     CHECKED
-/>NAME</label></div>`,
+/> NAME</label></div>`,
     };
   }
 
