@@ -4,7 +4,6 @@ h1 {
   font-size: var(--xxlarge-font-size);
   font-weight: var(--font-weight-900);
   line-height: var(--xxsmall-line-height);
-  margin-top: 2rem;
   overflow-wrap: break-word;
   text-wrap: balance;
 }

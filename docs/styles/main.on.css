@@ -719,7 +719,6 @@ a:focus {
   font-size: var(--xxlarge-font-size);
   font-weight: var(--font-weight-900);
   line-height: var(--xxsmall-line-height);
-  margin-top: 2rem;
   overflow-wrap: break-word;
   text-wrap: balance;
 }h2 {
@@ -808,10 +807,13 @@ hr::after {
   font-size: var(--small-font);
   padding-inline: var(--xxsmall-padding);
 }.layout-wrapper {
+/*
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 96vh;
   min-height: 96dvh;
+*/
+
 }legend {
   font-weight: var(--weight-900);
 }li > :where(:not(:first-child)) {
@@ -875,6 +877,10 @@ main > :where(:not(:first-child)) {
   max-width: 100%;
 }th {
   font-weight: var(--weight-900);
+}.theme-switcher {
+  display: flex;
+  gap: var(--default-gap);
+  border-bottom: var(--faded-accent-border);
 }u {
   text-decoration: var(--accent-faded) var(--wavy) var(--underline);
 }ul > :where(:not(:first-child)) {

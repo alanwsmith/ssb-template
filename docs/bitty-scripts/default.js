@@ -37,6 +37,9 @@ function url() {
 
 export default class {
   bittyInit() {
+    // note this style.display can be removed when
+    // bitty-6.0.0-rc3 or later is out
+    this.api.style.display = "";
     setProp("--load-hider", "1");
   }
 }

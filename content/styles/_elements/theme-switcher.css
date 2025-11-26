@@ -1,0 +1,5 @@
+.theme-switcher {
+  display: flex;
+  gap: var(--default-gap);
+  border-bottom: var(--faded-accent-border);
+}

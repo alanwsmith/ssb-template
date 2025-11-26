@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
 <style>
 :root {
   --light--background-color: oklch(0.9634 0.02097 105.642);
@@ -77,8 +76,7 @@
     --info-color: var(--info-color--switch, var(--dark--info-color));
     --faded-info-color: var(--faded-info-color--switch, var(--dark--faded-info-color));
   }
-}</style>
-<meta charset="UTF-8" />
+}</style><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title></title>
 <meta property="og:title" content="" />
@@ -396,17 +394,9 @@ addSheet(cssVarsDev());
     font-size: var(--default-font-size);
     line-height: var(--default-line-height);
   }
-  a {
-    color: var(--link-color);
-    text-decoration: none;
-  }
-  .theme-switcher {
-    display: flex;
-    gap: var(--default-gap);
-    border-bottom: 1px solid #777;
-  }
 </style>
 
+<link rel="stylesheet" href="/styles/main.on.css" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
 <meta name="description" content="" />
@@ -421,9 +411,6 @@ addSheet(cssVarsDev());
 <link rel="mask-icon" href="&#x2f;favicons/safari-pinned-tab.svg" color="#5bbad5" />
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.alanwsmith.com&#x2f;images&#x2f;og-image.jpg">
-
-    <link rel="stylesheet" href="/styles/main.on.css" />
-
   </head>
   <body>
 <noscript>
@@ -436,7 +423,7 @@ addSheet(cssVarsDev());
       data-connect="/bitty-scripts/default.js" 
       class="load-hider layout-wrapper">
 
-<header class="default-wrapper xlarge-bottom-margin">
+<header class="default-wrapper xxlarge-bottom-margin">
   <bitty-6-0 
     data-connect="/bitty-scripts/default.js ThemeSwitcher"
     data-location="top"
@@ -469,9 +456,10 @@ addSheet(cssVarsDev());
     <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
     </div>
   </div>
-</footer>
-    </bitty-6-0>
+</footer>    </bitty-6-0>
+
     <script src="https:&#x2f;&#x2f;unpkg.com&#x2f;@alanwsmith&#x2f;bitty@6.0.0-rc2&#x2f;bitty-6.0.0-rc2.min.js" type="module"></script>
+
     <script>
       setTimeout(() => { 
         document.documentElement.style.setProperty("--load-hider", "1");

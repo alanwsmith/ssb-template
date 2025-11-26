@@ -4,13 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     [! include "styles/_colors.html" !]
-
     [! include "_wrappers/includes/head-tag.html" !]
-
-    <link rel="stylesheet" href="/styles/main.on.css" />
-
   </head>
   <body>
     [! include "_wrappers/includes/noscript.html" !]
@@ -25,9 +20,10 @@
       </main>
 
       [! include "_wrappers/includes/footer.html" !]
-
     </[@ bitty_tag @]>
+
     <script src="[@ bitty_url @]" type="module"></script>
+
     <script>
       setTimeout(() => { 
         document.documentElement.style.setProperty("--load-hider", "1");
