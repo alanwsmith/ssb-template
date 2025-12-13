@@ -45,31 +45,31 @@
   --hc-dark--faded-info-color: oklch(0.6882 0.21203825105953206 22 / 0.418);
 }
 :root {
-  --background-color: var(--background-color--switch, var(--light--background-color));
-  --default-color: var(--default-color--switch, var(--light--default-color));
-  --faded-default-color: var(--faded-default-color--switch, var(--light--faded-default-color));
-  --heading-color: var(--heading-color--switch, var(--light--heading-color));
-  --faded-heading-color: var(--faded-heading-color--switch, var(--light--faded-heading-color));
-  --link-color: var(--link-color--switch, var(--light--link-color));
-  --faded-link-color: var(--faded-link-color--switch, var(--light--faded-link-color));
-  --accent-color: var(--accent-color--switch, var(--light--accent-color));
-  --faded-accent-color: var(--faded-accent-color--switch, var(--light--faded-accent-color));
-  --info-color: var(--info-color--switch, var(--light--info-color));
-  --faded-info-color: var(--faded-info-color--switch, var(--light--faded-info-color));
+  --background-color: var(--switch--background-color, var(--light--background-color));
+  --default-color: var(--switch--default-color, var(--light--default-color));
+  --faded-default-color: var(--switch--faded-default-color, var(--light--faded-default-color));
+  --heading-color: var(--switch--heading-color, var(--light--heading-color));
+  --faded-heading-color: var(--switch--faded-heading-color, var(--light--faded-heading-color));
+  --link-color: var(--switch--link-color, var(--light--link-color));
+  --faded-link-color: var(--switch--faded-link-color, var(--light--faded-link-color));
+  --accent-color: var(--switch--accent-color, var(--light--accent-color));
+  --faded-accent-color: var(--switch--faded-accent-color, var(--light--faded-accent-color));
+  --info-color: var(--switch--info-color, var(--light--info-color));
+  --faded-info-color: var(--switch--faded-info-color, var(--light--faded-info-color));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: var(--background-color--switch, var(--dark--background-color));
-    --default-color: var(--default-color--switch, var(--dark--default-color));
-    --faded-default-color: var(--faded-default-color--switch, var(--dark--faded-default-color));
-    --heading-color: var(--heading-color--switch, var(--dark--heading-color));
-    --faded-heading-color: var(--faded-heading-color--switch, var(--dark--faded-heading-color));
-    --link-color: var(--link-color--switch, var(--dark--link-color));
-    --faded-link-color: var(--faded-link-color--switch, var(--dark--faded-link-color));
-    --accent-color: var(--accent-color--switch, var(--dark--accent-color));
-    --faded-accent-color: var(--faded-accent-color--switch, var(--dark--faded-accent-color));
-    --info-color: var(--info-color--switch, var(--dark--info-color));
-    --faded-info-color: var(--faded-info-color--switch, var(--dark--faded-info-color));
+    --background-color: var(--switch--background-color, var(--dark--background-color));
+    --default-color: var(--switch--default-color, var(--dark--default-color));
+    --faded-default-color: var(--switch--faded-default-color, var(--dark--faded-default-color));
+    --heading-color: var(--switch--heading-color, var(--dark--heading-color));
+    --faded-heading-color: var(--switch--faded-heading-color, var(--dark--faded-heading-color));
+    --link-color: var(-switch--link-color-, var(--dark--link-color));
+    --faded-link-color: var(--switch--faded-link-color, var(--dark--faded-link-color));
+    --accent-color: var(--switch--accent-color, var(--dark--accent-color));
+    --faded-accent-color: var(--switch--faded-accent-color, var(--dark--faded-accent-color));
+    --info-color: var(--switch--info-color, var(--dark--info-color));
+    --faded-info-color: var(--switch--faded-info-color, var(--dark--faded-info-color));
   }
 }
