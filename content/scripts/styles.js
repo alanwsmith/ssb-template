@@ -1,4 +1,3 @@
-<script>
 const baseParams = {
   "border-radius": {
     classString: `.SIZE-KEY { KEY: var(--SIZE-KEY); }`,
@@ -261,72 +260,24 @@ function addSheet(content) {
   sheet.replaceSync(content);
   document.adoptedStyleSheets.push(sheet);
 }
+
+function updateStyles(theme) {
+  if (theme) {
+    const styleKeys = colors.map((color) => `${color}-color`);
+    styleKeys.forEach((styleKey) => {
+      const key = `--${styleKey}--switch`;
+      if (theme === "auto") {
+        document.documentElement.style.removeProperty(key);
+      } else {
+        const value = `var(--${theme}--${styleKey})`;
+        document.documentElement.style.setProperty(
+          key, value
+        );
+      }
+    });
+    localStorage.setItem("theme", theme);
+  }
+}
+
 addSheet(cssVarsDev());
-</script>
-
-<script>
-  function updateStyles(theme) {
-    if (theme) {
-      const styleKeys = colors.map((color) => `${color}-color`);
-      styleKeys.forEach((styleKey) => {
-        const key = `--${styleKey}--switch`;
-        if (theme === "auto") {
-          document.documentElement.style.removeProperty(key);
-        } else {
-          const value = `var(--${theme}--${styleKey})`;
-          document.documentElement.style.setProperty(
-            key, value
-          );
-        }
-      });
-      localStorage.setItem("theme", theme);
-    }
-  }
-  updateStyles(localStorage.getItem("theme"));
-</script>
-
-<style>
-  * {
-    margin: 0;
-  }
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  :root {
-    --load-hider: 0;
-  }
-  .load-hider {
-    opacity: var(--load-hider);
-  }
-  html {
-    color-scheme: light dark;
-    background-color: var(--background-color);
-  }
-  body {
-    background-color: var(--background-color);
-    color: var(--default-color);
-    font-family: "system-ui";
-    font-size-adjust: 0.5;
-    font-size: var(--default-font-size);
-    line-height: var(--default-line-height);
-  }
-</style>
-
-<link rel="stylesheet" href="/styles/main.on.css" />
-
-<link rel="shortcut icon" href="/favicon.ico" />
-<title>[@ json._config.site.title @]</title>
-<meta property="og:title" content="[@ json._config.site.title @]" />
-<meta name="description" content="[@ json._config.site.description @]" />
-<meta property="og:description" content="[@ json._config.site.description @]" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="[@ og_url @]" />
-<meta property="og:image" content="[@ og_image_url @]" />
-<link rel="apple-touch-icon" sizes="180x180" href="[@ json._config.site.favicon_root @]/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="[@ json._config.site.favicon_root @]/favicon-16x16.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="[@ json._config.site.favicon_root @]/favicon-32x32.png" />
-<link rel="manifest" href="[@ json._config.site.favicon_root @]/site.webmanifest" />
-<link rel="mask-icon" href="[@ json._config.site.favicon_root @]/safari-pinned-tab.svg" color="#5bbad5" />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="[@ og_image_url @]">
-
+updateStyles(localStorage.getItem("theme"));
