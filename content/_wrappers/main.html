@@ -6,13 +6,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    [! include "styles/_colors.html" !]
-    [! include "_wrappers/includes/head-tag.html" !]
+    [! include "styles/_includes/initial-colors.html" !]
+    [! include "styles/_includes/initial-styles.html" !]
+    <script src="/scripts/styles.js"></script>
+    <script src="[@ bitty_url @]" type="module"></script>
+    <link rel="stylesheet" href="/styles/main.css" />
+    [! include "_wrappers/includes/metadata.html" !]
   </head>
   <body>
     [! include "_wrappers/includes/noscript.html" !]
     <[@ bitty_tag @]
-      data-connect="/bitty-scripts/default.js" 
+      data-connect="/bits/main.js Main" 
       class="load-hider layout-wrapper">
 
       [! include "_wrappers/includes/header.html" !]
@@ -23,8 +27,6 @@
 
       [! include "_wrappers/includes/footer.html" !]
     </[@ bitty_tag @]>
-
-    <script src="[@ bitty_url @]" type="module"></script>
 
     <script>
       setTimeout(() => { 
