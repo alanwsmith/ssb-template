@@ -13,9 +13,9 @@ export class ThemeSwitcher {
     ["hc-dark", "HC Dark"]
   ];
 
-  changeTheme(event, _el) {
-    if (event.type === "input") {
-      updateStyles(event.target.value);
+  changeTheme(ev, _el) {
+    if (ev.type === "input") {
+      updateStyles(ev.target.value);
       this.api.trigger("syncCheckedTheme");
     }
   }

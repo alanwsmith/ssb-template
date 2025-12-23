@@ -265,7 +265,7 @@ function updateStyles(theme) {
   if (theme) {
     const styleKeys = colors.map((color) => `${color}-color`);
     styleKeys.forEach((styleKey) => {
-      const key = `--${styleKey}--switch`;
+      const key = `--switch--${styleKey}`;
       if (theme === "auto") {
         document.documentElement.style.removeProperty(key);
       } else {
