@@ -55,6 +55,10 @@ button {
   cursor: pointer;
 }
 
+body {
+  font-family: system-ui, sans-serif; 
+}
+
 canvas {
   display: block;
   max-width: 100%;
