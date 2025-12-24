@@ -13,11 +13,25 @@ export class ThemeSwitcher {
 
   bittyReady() {
     this.api.trigger("syncCheckedTheme");
+    this.api.trigger("syncHighContrast");
   }
 
   changeTheme(ev, _) {
-    updateStyles(ev.prop("key"));
-    this.api.trigger("syncCheckedTheme");
+    localStorage.setItem("theme", ev.prop("key"));
+    if (ev.prop("key") === "auto") {
+      localStorage.setItem("contrast", "");
+    }
+    switchColorStyles();
+    this.api.trigger("syncCheckedTheme syncHighContrast");
+  }
+
+  getCurrentContrast() {
+    let current = localStorage.getItem("contrast");
+    if (current) {
+      return current;
+    } else {
+      return "";
+    }
   }
 
   getCurrentTheme() {
@@ -32,7 +46,6 @@ export class ThemeSwitcher {
   themeSwitcher(ev, el) {
     const switcher = this.api.makeElement(this.template("switcher"));
     for (let theme of this.#themes) {
-      const checked = this.getCurrentTheme() === theme[0] ? "checked" : "";
       const subs = [
         ["KEY", theme[0]],
         ["NAME", theme[1]],
@@ -44,8 +57,29 @@ export class ThemeSwitcher {
     el.replaceChildren(switcher);
   }
 
+  toggleHighContrast(ev, _) {
+    let current = localStorage.getItem("contrast")
+      ? localStorage.getItem("contrast")
+      : "";
+    if (current === "") {
+      localStorage.setItem("contrast", "hc-");
+    } else {
+      localStorage.setItem("contrast", "");
+    }
+    switchColorStyles();
+    this.api.trigger("syncHighContrast");
+  }
+
   syncCheckedTheme(_, el) {
     if (el.prop("key") === this.getCurrentTheme()) {
+      el.classList.add("active");
+    } else {
+      el.classList.remove("active");
+    }
+  }
+
+  syncHighContrast(_, el) {
+    if (this.getCurrentContrast() === "hc-") {
       el.classList.add("active");
     } else {
       el.classList.remove("active");
@@ -55,15 +89,13 @@ export class ThemeSwitcher {
   template(template) {
     switch (template) {
       case "hc-button":
-        return `
-<button
+        return `<button
   data-send="toggleHighContrast"
   data-receive="syncHighContrast"
->High Contrast</button>
-`;
+>High Contrast</button>`;
+
       case "item":
-        return `
-<button
+        return `<button
   data-key="KEY" 
   data-send="changeTheme" 
   data-receive="syncCheckedTheme" 

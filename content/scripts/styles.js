@@ -261,27 +261,29 @@ function addSheet(content) {
   document.adoptedStyleSheets.push(sheet);
 }
 
-function updateStyles(theme, contrast = "") {
-  if (theme) {
-    const styleKeys = colors.map((color) => `${color}-color`);
-    styleKeys.forEach((styleKey) => {
-      prefixes.forEach((prefix) => {
-        const key = `--switch--${prefix}${contrast}${styleKey}`;
-        if (theme === "auto") {
-          document.documentElement.style.removeProperty(key);
-        } else {
-          const value = `var(--${theme}--${prefix}${contrast}${styleKey})`;
-          document.documentElement.style.setProperty(
-            key,
-            value,
-          );
-        }
-      });
+function switchColorStyles() {
+  const contrast = localStorage.getItem("contrast")
+    ? localStorage.getItem("contrast")
+    : "";
+  const theme = localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : "";
+  const styleKeys = colors.map((color) => `${color}-color`);
+  styleKeys.forEach((styleKey) => {
+    prefixes.forEach((prefix) => {
+      const key = `--switch--${prefix}${styleKey}`;
+      if (theme === "auto") {
+        document.documentElement.style.removeProperty(key);
+      } else {
+        const value = `var(--${contrast}${theme}--${prefix}${styleKey})`;
+        document.documentElement.style.setProperty(
+          key,
+          value,
+        );
+      }
     });
-    localStorage.setItem("theme", theme);
-    localStorage.setItem("contrast", contrast);
-  }
+  });
 }
 
 addSheet(cssVarsDev());
-updateStyles(localStorage.getItem("theme"), localStorage.getItem("contrast"));
+switchColorStyles();
