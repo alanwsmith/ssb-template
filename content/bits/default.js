@@ -80,6 +80,11 @@ export class ThemeSwitcher {
   }
 
   syncHighContrast(_, el) {
+    if (this.getCurrentTheme() === "auto") {
+      el.hidden = true;
+    } else {
+      el.hidden = false;
+    }
     if (this.getCurrentContrast() === "hc-") {
       el.classList.add("active");
     } else {
