@@ -75,6 +75,10 @@
   --hc-dark--faded-match-color: oklch(0 0 78.02412821214362 / 0.46);
   --hc-dark--reverse-color: oklch(1 0 78.02412821214362);
   --hc-dark--faded-reverse-color: oklch(1 0 78.02412821214362 / 0.46);
+  --highlight-1-color: oklch(from var(--accent-color) l c h);
+  --highlight-2-color: oklch(from var(--accent-color) l c calc(h + 60));
+  --highlight-3-color: oklch(from var(--accent-color) l c calc(h + 120));
+  --highlight-4-color: oklch(from var(--accent-color) l c calc(h + 180));
 }
 
 :root {
