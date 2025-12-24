@@ -17,13 +17,13 @@
   --light--info-color: oklch(0.645 0.09691077318165202 345.642);
   --light--faded-info-color: oklch(0.645 0.09691077318165202 345.642 / 0.376);
   --light--black-color: oklch(0 0 301.9078701095805);
-  --light--faded-black-color: oklch(0 0 301.9078701095805 / 0.593);
+  --light--faded-black-color: oklch(0 0 301.9078701095805 / 0.46);
   --light--white-color: oklch(1 0 301.9078701095805);
-  --light--faded-white-color: oklch(1 0 301.9078701095805 / 0.324);
-  --light--match-color: oklch(0 0 301.9078701095805);
-  --light--faded-match-color: oklch(0 0 301.9078701095805 / 0.593);
-  --light--reverse-color: oklch(1 0 301.9078701095805);
-  --light--faded-reverse-color: oklch(1 0 301.9078701095805 / 0.324);
+  --light--faded-white-color: oklch(1 0 301.9078701095805 / 0.46);
+  --light--match-color: oklch(1 0 301.9078701095805);
+  --light--faded-match-color: oklch(1 0 301.9078701095805 / 0.46);
+  --light--reverse-color: oklch(0 0 301.9078701095805);
+  --light--faded-reverse-color: oklch(0 0 301.9078701095805 / 0.46);
   --dark--background-color: oklch(0.2124 0.0298 254.092);
   --dark--default-color: oklch(0.8747 0.04454 254.092);
   --dark--faded-default-color: oklch(0.8747 0.04454 254.092 / 0.157);
@@ -58,10 +58,10 @@
   --hc-light--faded-black-color: oklch(0 0 53.5090680592232 / 0.46);
   --hc-light--white-color: oklch(1 0 53.5090680592232);
   --hc-light--faded-white-color: oklch(1 0 53.5090680592232 / 0.46);
-  --hc-light--match-color: oklch(0 0 53.5090680592232);
-  --hc-light--faded-match-color: oklch(0 0 53.5090680592232 / 0.46);
-  --hc-light--reverse-color: oklch(1 0 53.5090680592232);
-  --hc-light--faded-reverse-color: oklch(1 0 53.5090680592232 / 0.46);
+  --hc-light--match-color: oklch(1 0 53.5090680592232);
+  --hc-light--faded-match-color: oklch(1 0 53.5090680592232 / 0.46);
+  --hc-light--reverse-color: oklch(0 0 53.5090680592232);
+  --hc-light--faded-reverse-color: oklch(0 0 53.5090680592232 / 0.46);
   --hc-dark--background-color: oklch(0 0.20706934229967444 142);
   --hc-dark--default-color: oklch(1 0.20411 82);
   --hc-dark--faded-default-color: oklch(1 0.20411 82 / 0.385);
@@ -85,6 +85,10 @@
   --highlight-2-color: oklch(from var(--accent-color) l c calc(h + 60));
   --highlight-3-color: oklch(from var(--accent-color) l c calc(h + 120));
   --highlight-4-color: oklch(from var(--accent-color) l c calc(h + 180));
+  --highlight-5-color: oklch(from var(--link-color) l c h);
+  --highlight-6-color: oklch(from var(--link-color) l c calc(h + 60));
+  --highlight-7-color: oklch(from var(--link-color) l c calc(h + 120));
+  --highlight-8-color: oklch(from var(--link-color) l c calc(h + 180));
 }
 
 :root {

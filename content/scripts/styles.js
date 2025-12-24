@@ -265,15 +265,18 @@ function updateStyles(theme) {
   if (theme) {
     const styleKeys = colors.map((color) => `${color}-color`);
     styleKeys.forEach((styleKey) => {
-      const key = `--switch--${styleKey}`;
-      if (theme === "auto") {
-        document.documentElement.style.removeProperty(key);
-      } else {
-        const value = `var(--${theme}--${styleKey})`;
-        document.documentElement.style.setProperty(
-          key, value
-        );
-      }
+      prefixes.forEach((prefix) => {
+        const key = `--switch--${prefix}${styleKey}`;
+        if (theme === "auto") {
+          document.documentElement.style.removeProperty(key);
+        } else {
+          const value = `var(--${theme}--${prefix}${styleKey})`;
+          document.documentElement.style.setProperty(
+            key,
+            value,
+          );
+        }
+      });
     });
     localStorage.setItem("theme", theme);
   }
