@@ -83,6 +83,13 @@ code {
   font-family: Hack, monospace;
 }
 
+.code-block {
+  background-color: var(--faded-match-color);
+  margin-block: var(--default-margin);
+  padding: var(--xlarge-padding);
+  border-radius: var(--default-border-radius);
+}
+
 del {
   text-decoration: line-through;
 }
