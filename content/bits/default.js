@@ -53,6 +53,7 @@ export class ThemeSwitcher {
       const option = this.api.makeElement(this.template("item"), subs);
       switcher.appendChild(option);
     }
+    switcher.appendChild(this.api.makeElement(this.template("spacer")));
     switcher.appendChild(this.api.makeElement(this.template("hc-button")));
     el.replaceChildren(switcher);
   }
@@ -100,6 +101,9 @@ export class ThemeSwitcher {
   data-send="changeTheme" 
   data-receive="syncCheckedTheme" 
 >NAME</button>`;
+
+      case "spacer":
+        return `<span>|</span>`;
 
       case "switcher":
         return `<div class="theme-switcher"><span>|</span> Colors: </div>`;
