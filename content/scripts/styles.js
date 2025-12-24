@@ -261,16 +261,16 @@ function addSheet(content) {
   document.adoptedStyleSheets.push(sheet);
 }
 
-function updateStyles(theme) {
+function updateStyles(theme, contrast = "") {
   if (theme) {
     const styleKeys = colors.map((color) => `${color}-color`);
     styleKeys.forEach((styleKey) => {
       prefixes.forEach((prefix) => {
-        const key = `--switch--${prefix}${styleKey}`;
+        const key = `--switch--${prefix}${contrast}${styleKey}`;
         if (theme === "auto") {
           document.documentElement.style.removeProperty(key);
         } else {
-          const value = `var(--${theme}--${prefix}${styleKey})`;
+          const value = `var(--${theme}--${prefix}${contrast}${styleKey})`;
           document.documentElement.style.setProperty(
             key,
             value,
@@ -279,8 +279,9 @@ function updateStyles(theme) {
       });
     });
     localStorage.setItem("theme", theme);
+    localStorage.setItem("contrast", contrast);
   }
 }
 
 addSheet(cssVarsDev());
-updateStyles(localStorage.getItem("theme"));
+updateStyles(localStorage.getItem("theme"), localStorage.getItem("contrast"));

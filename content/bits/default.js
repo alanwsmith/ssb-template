@@ -11,6 +11,10 @@ export class ThemeSwitcher {
     ["dark", "Dark"],
   ];
 
+  bittyReady() {
+    this.api.trigger("syncCheckedTheme");
+  }
+
   changeTheme(ev, _) {
     updateStyles(ev.prop("key"));
     this.api.trigger("syncCheckedTheme");
@@ -32,19 +36,16 @@ export class ThemeSwitcher {
       const subs = [
         ["KEY", theme[0]],
         ["NAME", theme[1]],
-        ["LOCATION", el.dataset.location],
-        ["CHECKED", checked],
       ];
       const option = this.api.makeElement(this.template("item"), subs);
       switcher.appendChild(option);
     }
+    switcher.appendChild(this.api.makeElement(this.template("hc-button")));
     el.replaceChildren(switcher);
   }
 
   syncCheckedTheme(_, el) {
     if (el.prop("key") === this.getCurrentTheme()) {
-      console.log("HERE1");
-      console.log(el);
       el.classList.add("active");
     } else {
       el.classList.remove("active");
@@ -53,6 +54,13 @@ export class ThemeSwitcher {
 
   template(template) {
     switch (template) {
+      case "hc-button":
+        return `
+<button
+  data-send="toggleHighContrast"
+  data-receive="syncHighContrast"
+>High Contrast</button>
+`;
       case "item":
         return `
 <button
@@ -62,7 +70,7 @@ export class ThemeSwitcher {
 >NAME</button>`;
 
       case "switcher":
-        return `<div class="theme-switcher"><span>|</span> Theme: </div>`;
+        return `<div class="theme-switcher"><span>|</span> Colors: </div>`;
     }
   }
 }
