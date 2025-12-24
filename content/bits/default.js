@@ -8,16 +8,12 @@ export class ThemeSwitcher {
   #themes = [
     ["auto", "Auto"],
     ["light", "Light"],
-    ["hc-light", "HC Light"],
     ["dark", "Dark"],
-    ["hc-dark", "HC Dark"]
   ];
 
-  changeTheme(ev, _el) {
-    if (ev.type === "input") {
-      updateStyles(ev.target.value);
-      this.api.trigger("syncCheckedTheme");
-    }
+  changeTheme(ev, _) {
+    updateStyles(ev.prop("key"));
+    this.api.trigger("syncCheckedTheme");
   }
 
   getCurrentTheme() {
@@ -45,28 +41,28 @@ export class ThemeSwitcher {
     el.replaceChildren(switcher);
   }
 
-  syncCheckedTheme(_event, el) {
-    if (el.value === this.getCurrentTheme()) {
-      el.checked = true;
+  syncCheckedTheme(_, el) {
+    if (el.prop("key") === this.getCurrentTheme()) {
+      console.log("HERE1");
+      console.log(el);
+      el.classList.add("active");
     } else {
-      el.checked = false;
+      el.classList.remove("active");
     }
   }
 
   template(template) {
-    switch(template) {
-      case "item": 
-        return `<div><label>
-  <input type="radio" 
-    name="mode-LOCATION" 
-    value="KEY" 
-    data-send="changeTheme" 
-    data-receive="syncCheckedTheme" 
-    CHECKED
-/> NAME</label></div>`;
+    switch (template) {
+      case "item":
+        return `
+<button
+  data-key="KEY" 
+  data-send="changeTheme" 
+  data-receive="syncCheckedTheme" 
+>NAME</button>`;
 
       case "switcher":
-        return `<div class="theme-switcher"></div>`;
+        return `<div class="theme-switcher"><span>|</span> Theme: </div>`;
     }
   }
 }

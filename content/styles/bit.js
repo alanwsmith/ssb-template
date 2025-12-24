@@ -25,7 +25,7 @@ export default class {
     switch (name) {
       case "color-line":
         return `
-  <div class="two-columns">
+  <div class="two-columns COLOR-border default-margin default-border-radius default-padding">
     <div>
       <div class="COLOR-bottom-border COLOR-color">COLOR-color</div>
       <div class="faded-COLOR-bottom-border faded-COLOR-color">faded-COLOR-color</div>
