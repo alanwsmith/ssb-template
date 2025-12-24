@@ -255,6 +255,12 @@ th {
   border-bottom: var(--faded-default-border);
 }
 
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--default-padding);
+}
+
 ul > :where(:not(:first-child)) {
   margin-top: var(--flow-space, var(--default-flow));
 }
