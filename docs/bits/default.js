@@ -198,3 +198,38 @@ export class CodeBlockControls {
     }
   }
 }
+
+export class ImageUpdater {
+  bittyReady() {
+    this.api.querySelectorAll("img").forEach((image, index) => {
+      if (image.alt) {
+        const subs = [
+          ["IMAGE", image],
+          ["TEXT", image.alt],
+        ];
+        const newWrapper = this.api.makeElement(
+          this.template("image-wrapper"),
+          subs,
+        );
+        image.replaceWith(newWrapper);
+      }
+    });
+  }
+
+  template(name) {
+    switch (name) {
+      case "image-wrapper":
+        return `
+<div class="image-block">
+  <div class="image">IMAGE</div>
+  <div class="image-details">
+    <details>
+      <summary>alt text</summary>
+      <div>TEXT</div>
+    </details>
+  </div>
+</div>
+`;
+    }
+  }
+}

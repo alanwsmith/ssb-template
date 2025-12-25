@@ -243,6 +243,52 @@ iframe {
   max-width: 100%;
 }
 
+.image-block {
+
+  details :where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1em);
+    padding-inline: 0.4rem;
+  }
+
+  details {
+    margin-block: var(--default-margin);
+    & summary {
+      cursor: pointer;
+      padding-inline: 0.6rem;
+    }
+  }
+
+  details[open]{
+    border-radius: 0.4rem;
+    outline: var(--faded-accent-border);
+    padding-bottom: 0.4rem;
+
+    & summary {
+      display: block;
+      border-bottom: var(--faded-accent-border);
+    }
+
+    & summary:before {
+      content: "▼ ";
+      font-family: monospace;
+    }
+  }
+
+  details:not([open]) {
+    & summary {
+      border-radius: 0.4rem;
+      display: inline-block;
+      outline: var(--faded-accent-border);
+    }
+
+    & summary:before {
+      content: "▶ ";
+      font-family: monospace;
+    }
+  }
+
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -321,12 +367,10 @@ th {
   gap: var(--default-padding);
   padding: var(--small-padding);
 
-
   & button.active {
       background-color: var(--faded-reverse-color);
       color: var(--match-color);
   }
-
 }
 
 .two-columns {
