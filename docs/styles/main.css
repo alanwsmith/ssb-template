@@ -282,6 +282,13 @@ p {
   text-wrap: pretty;
 }
 
+p > code {
+  background-color: var(--match-color);
+  border-radius: var(--xsmall-border-radius);
+  padding-inline: var(--xxsmall-padding);
+  outline: var(--faded-reverse-border);
+}
+
 svg {
   display: block;
   max-width: 100%;
