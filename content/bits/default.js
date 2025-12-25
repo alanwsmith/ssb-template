@@ -141,21 +141,23 @@ export class CodeBlockControls {
 
   bittyReady() {
     this.api.querySelectorAll(".code-block").forEach((codeBlock, index) => {
-      codeBlock.dataset.receive = "toggleWrap";
-      const signals = codeBlock.dataset.receive
-        ? [codeBlock.dataset.receive]
-        : [];
-      signals.push("codeBlock");
-      codeBlock.dataset.receive = signals.join(" ");
-      const subs = [
-        ["INDEX", index],
-        ["BLOCK", codeBlock],
-      ];
-      const newWrapper = this.api.makeElement(
-        this.template("code-block-wrapper"),
-        subs,
-      );
-      codeBlock.replaceWith(newWrapper);
+      if (!codeBlock.classList.contains("nobuttons")) {
+        codeBlock.dataset.receive = "toggleWrap";
+        const signals = codeBlock.dataset.receive
+          ? [codeBlock.dataset.receive]
+          : [];
+        signals.push("codeBlock");
+        codeBlock.dataset.receive = signals.join(" ");
+        const subs = [
+          ["INDEX", index],
+          ["BLOCK", codeBlock],
+        ];
+        const newWrapper = this.api.makeElement(
+          this.template("code-block-wrapper"),
+          subs,
+        );
+        codeBlock.replaceWith(newWrapper);
+      }
     });
   }
 
