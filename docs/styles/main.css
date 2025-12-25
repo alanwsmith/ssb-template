@@ -60,14 +60,20 @@ blockquote {
 }
 
 button {
-  /*
-  background-color: var(--faded-match);
-  border: var(--reverse-border);
-  border-radius: var(--xsmall-radius);
-  color: var(--reverse);
-  */
-  font-family: inherit;
+  background: none;
+  border: var(--accent-border);
+  border-radius: var(--default-border-radius);
+  color: var(--link-color);
   cursor: pointer;
+  font-family: inherit;
+  font-size: var(--small-font-size);
+  outline: inherit;
+  padding-block: var(--xxsmall-padding);
+  padding-inline: var(--xsmall-padding);
+}
+
+button:hover {
+  color: var(--accent-color);
 }
 
 body {
@@ -90,17 +96,50 @@ code {
   border-radius: var(--default-border-radius);
   font-size: var(--small-font-size);
   margin-block: var(--default-margin);
-  padding: var(--xlarge-padding);
+  padding-block: var(--xlarge-padding);
+  padding-left: 3.2rem;
+  padding-right: var(--default-padding);
   white-space: pre-wrap; 
   overflow-wrap: anywhere;
   overflow-x: auto;
   overscroll-behavior-x: auto;
+
+  & .line-marker {
+    counter-increment: codeBlockLineNumberX;
+  }
+
+  & .line-marker:before {
+      content: counter(codeBlockLineNumberX);
+      display: inline-block;
+      margin-left: -7.8ch;
+      padding-right: 1ch;
+      position: absolute;
+      text-align: end;
+      width: 7ch;
+      color: var(--accent-color);
+      border-right: var(--faded-accent-border);
+  }
 }
 
-.code-block .nowrap {
-  background-color: var(--accent-color);
+.code-block.nowrap {
+  white-space: pre; 
+  overflow-wrap: normal;
+  overflow-x: scroll; 
+  overscroll-behavior-x: none;
 }
 
+.code-block.nonums {
+  padding-left: var(--default-padding);
+
+  & .line-marker:before {
+    opacity: 0;
+  }
+}
+
+
+.contrast-button.active:hover {
+  color: var(--reverse-color);
+}
 
 del {
   text-decoration: line-through;
@@ -275,18 +314,6 @@ th {
   gap: var(--default-padding);
   padding: var(--small-padding);
 
-  & button {
-    background: none;
-    border: var(--faded-accent-border);
-    border-radius: var(--default-border-radius);
-    color: var(--link-color);
-    font-size: var(--small-font-size);
-    outline: inherit;
-  }
-
-  & button:hover {
-    color: var(--accent-color);
-  }
 
   & button.active {
       background-color: var(--faded-reverse-color);

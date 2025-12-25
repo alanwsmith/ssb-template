@@ -115,6 +115,7 @@ export class ThemeSwitcher {
     switch (template) {
       case "hc-button":
         return `<button
+  class="contrast-button"
   data-send="toggleHighContrast"
   data-receive="syncHighContrast"
 >High Contrast</button>`;
