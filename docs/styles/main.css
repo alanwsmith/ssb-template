@@ -66,7 +66,7 @@ button {
   border-radius: var(--xsmall-radius);
   color: var(--reverse);
   */
-  font: inherit;
+  font-family: inherit;
   cursor: pointer;
 }
 
@@ -133,7 +133,6 @@ h2 {
   font-size: var(--xlarge-font-size);
   font-weight: var(--font-weight-900);
   line-height: var(--xxsmall-line-height);
-  margin-top: 7rem;
   overflow-wrap: break-word;
   text-wrap: balance;
 }
@@ -281,16 +280,19 @@ th {
     border: var(--faded-accent-border);
     border-radius: var(--default-border-radius);
     color: var(--link-color);
-    cursor: pointer;
-    font-family: inherit;
     font-size: var(--small-font-size);
     outline: inherit;
+  }
+
+  & button:hover {
+    color: var(--accent-color);
   }
 
   & button.active {
       background-color: var(--faded-reverse-color);
       color: var(--match-color);
-    }
+  }
+
 }
 
 .two-columns {

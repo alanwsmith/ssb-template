@@ -1,6 +1,11 @@
 <header class="default-wrapper xxxlarge-bottom-margin">
   <div class="top-nav">
+    [! if file.path_parts[0] == "index.html" !]
+    Home
+    [! else !]
     <a href="/">Home</a>
+    [! endif !]
+
     <[@ bitty_tag @] 
       data-connect="/bits/default.js ThemeSwitcher"
       data-location="top"
