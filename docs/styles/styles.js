@@ -261,23 +261,29 @@ function addSheet(content) {
   document.adoptedStyleSheets.push(sheet);
 }
 
-function updateStyles(theme) {
-  if (theme) {
-    const styleKeys = colors.map((color) => `${color}-color`);
-    styleKeys.forEach((styleKey) => {
-      const key = `--switch--${styleKey}`;
+function switchColorStyles() {
+  const contrast = localStorage.getItem("contrast")
+    ? localStorage.getItem("contrast")
+    : "";
+  const theme = localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : "";
+  const styleKeys = colors.map((color) => `${color}-color`);
+  styleKeys.forEach((styleKey) => {
+    prefixes.forEach((prefix) => {
+      const key = `--switch--${prefix}${styleKey}`;
       if (theme === "auto") {
         document.documentElement.style.removeProperty(key);
       } else {
-        const value = `var(--${theme}--${styleKey})`;
+        const value = `var(--${contrast}${theme}--${prefix}${styleKey})`;
         document.documentElement.style.setProperty(
-          key, value
+          key,
+          value,
         );
       }
     });
-    localStorage.setItem("theme", theme);
-  }
+  });
 }
 
 addSheet(cssVarsDev());
-updateStyles(localStorage.getItem("theme"));
+switchColorStyles();

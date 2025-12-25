@@ -1,9 +1,27 @@
 [! extends "_wrappers/main.html" !]
 [! block main !]
+<style>
+.color-block {
+  width: 3rem;
+  height: 4rem;
+  display: inline-block;
+  border-radius: var(--default-border-radius);
+}
+.color-lines {
+  display: grid;
+  gap: 1.5rem;
+}
+</style>
 
-
+<bitty-7-0 data-connect="/bits/example-styles.js" class="default-flow">
 <h1>Style Check - h1</h1>
 <p>The quick brown fox jumps over the lazy dog</p>
+  <p>This is an <code>inline code</code> string</p>
+  <p>Inline [! filter inline_highlight("html") !]<div>html</div>[! endfilter !] sample</p>
+
+  <div>
+    <img src="/images/sample-image.jpg" alt="A statue of a turtle that's been painted with a yellow submarine on it's chest and other aquatic life floating around on it's limbs." />
+  </div>
 
 <h2>Style Check - h2</h2>
 <p>The quick brown fox jumps over the lazy dog</p>
@@ -20,30 +38,25 @@
 <h6>Style Check - h6</h6>
 <p>The quick brown fox jumps over the lazy dog</p>
 
+<div 
+    class="xxlarge-margin"
+    data-init="colorLines"></div>
 
-<style>
-.color-lines {
-  display: grid;
-  gap: 1.5rem;
-}
-</style>
+  <h2>Code Sample</h2>
+  [! filter block_highlight("js") !]
+  [! include "bits/example-styles.js" !]
+  [! endfilter !]
 
-<div class="color-lines">
-  <div class="default-bottom-border default-color">default</div>
-  <div class="faded-default-bottom-border faded-default-color">faded-default</div>
+  <h2>No Nums Code Block</h2>
+  [! filter block_highlight("js", "nonums") !]
+  [! include "bits/example-styles.js" !]
+  [! endfilter !]
 
-  <div class="heading-bottom-border heading-color">heading</div>
-  <div class="faded-heading-bottom-border faded-heading-color">faded-heading</div>
+  <h2>No Buttons Code Block</h2>
+  [! filter block_highlight("js", "nobuttons") !]
+  [! include "bits/example-styles.js" !]
+  [! endfilter !]
 
-  <div class="link-bottom-border link-color">link</div>
-  <div class="faded-link-bottom-border faded-link-color">faded-link</div>
-
-  <div class="accent-bottom-border accent-color">accent</div>
-  <div class="faded-accent-bottom-border faded-accent-color">faded-accent</div>
-
-  <div class="info-bottom-border info-color">info</div>
-  <div class="faded-info-bottom-border faded-info-color">faded-info</div>
-</div>
-
+</bitty-7-0>
 
 [! endblock !]
