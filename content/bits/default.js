@@ -134,3 +134,64 @@ export class ThemeSwitcher {
     }
   }
 }
+
+export class CodeBlockControls {
+  #timeouts = {};
+
+  bittyReady() {
+    this.api.querySelectorAll(".code-block").forEach((codeBlock, index) => {
+      codeBlock.dataset.receive = "toggleWrap";
+      const signals = codeBlock.dataset.receive
+        ? [codeBlock.dataset.receive]
+        : [];
+      signals.push("codeBlock");
+      codeBlock.dataset.receive = signals.join(" ");
+      const subs = [
+        ["INDEX", index],
+        ["BLOCK", codeBlock],
+      ];
+      const newWrapper = this.api.makeElement(
+        this.template("code-block-wrapper"),
+        subs,
+      );
+      codeBlock.replaceWith(newWrapper);
+    });
+  }
+
+  async copyText(ev, el) {
+    if (el.propMatchesSender("index")) {
+      try {
+        await navigator.clipboard.writeText(el.innerText);
+        ev.sender.innerHTML = "Copied";
+        if (this.#timeouts[el.bittyId]) {
+          clearTimeout(this.#timeouts[el.bittyId]);
+        }
+        this.#timeouts[el.bittyId] = setTimeout(() => {
+          ev.sender.innerHTML = "Copy";
+        }, 1400);
+      } catch (err) {
+        console.error("Could not copy to clipboard");
+      }
+    }
+  }
+
+  template(name) {
+    switch (name) {
+      case "code-block-wrapper":
+        return `
+<div data-index="INDEX">
+  <div data-receive="copyText">BLOCK</div>
+  <div class="text-align-right">
+    <button data-send="toggleWrap">ToggleWrap</button>
+    <button data-send="copyText">Copy</button>
+  </div>
+</div>`;
+    }
+  }
+
+  toggleWrap(_, el) {
+    if (el.propMatchesSender("index")) {
+      el.classList.toggle("nowrap");
+    }
+  }
+}

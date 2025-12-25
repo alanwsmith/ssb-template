@@ -97,6 +97,11 @@ code {
   overscroll-behavior-x: auto;
 }
 
+.code-block .nowrap {
+  background-color: var(--accent-color);
+}
+
+
 del {
   text-decoration: line-through;
 }
@@ -273,19 +278,19 @@ th {
 
   & button {
     background: none;
-    border: none;
+    border: var(--faded-accent-border);
+    border-radius: var(--default-border-radius);
     color: var(--link-color);
     cursor: pointer;
-    font: inherit;
+    font-family: inherit;
+    font-size: var(--small-font-size);
     outline: inherit;
-    padding: 0;
   }
 
   & button.active {
-      text-decoration: underline;
-      color: inherit;
+      background-color: var(--faded-reverse-color);
+      color: var(--match-color);
     }
-
 }
 
 .two-columns {
