@@ -15,8 +15,11 @@ export class ThemeSwitcher {
 
   bittyReady() {
     document.adoptedStyleSheets.push(this.#extraStyles);
-    this.api.trigger("syncCheckedTheme");
-    this.api.trigger("syncHighContrast");
+    this.api.trigger("doUpdates");
+  }
+
+  doUpdates(_, __) {
+    this.api.trigger("updateStyles syncCheckedTheme syncHighContrast");
   }
 
   getCurrentContrast() {
@@ -34,7 +37,34 @@ export class ThemeSwitcher {
   setTheme(ev, _) {
     localStorage.setItem("theme", ev.prop("key"));
     switchColorStyles();
-    this.api.trigger("syncCheckedTheme syncHighContrast");
+    this.api.trigger("doUpdates");
+  }
+
+  updateStyles(_, __) {
+    if (
+      this.getCurrentTheme() === "auto" && this.getCurrentContrast() === "hc-"
+    ) {
+      const content = [];
+      content.push(`:root {`);
+      colors.forEach((color) => {
+        content.push(`--${color}-color: var(--hc-light--${color}-color);`);
+        content.push(
+          `--faded-${color}-color: var(--hc-light--faded-${color}-color);`,
+        );
+      });
+      content.push("}");
+      content.push(`@media (prefers-color-scheme: dark) { :root {`);
+      colors.forEach((color) => {
+        content.push(`--${color}-color: var(--hc-dark--${color}-color);`);
+        content.push(
+          `--faded-${color}-color: var(--hc-dark--faded-${color}-color);`,
+        );
+      });
+      content.push("}}");
+      this.#extraStyles.replaceSync(content.join("\n"));
+    } else {
+      this.#extraStyles.replaceSync("");
+    }
   }
 
   themeSwitcher(_, el) {
@@ -62,7 +92,7 @@ export class ThemeSwitcher {
       localStorage.setItem("contrast", "");
     }
     switchColorStyles();
-    this.api.trigger("syncHighContrast");
+    this.api.trigger("doUpdates");
   }
 
   syncCheckedTheme(_, el) {
@@ -74,14 +104,6 @@ export class ThemeSwitcher {
   }
 
   syncHighContrast(_, el) {
-    /*
-    if (this.getCurrentTheme() === "auto") {
-      el.hidden = true;
-    } else {
-      el.hidden = false;
-    }
-    */
-
     if (this.getCurrentContrast() === "hc-") {
       el.classList.add("active");
     } else {
