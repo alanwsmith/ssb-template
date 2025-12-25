@@ -11,39 +11,33 @@ export class ThemeSwitcher {
     ["dark", "Dark"],
   ];
 
+  #extraStyles = new CSSStyleSheet();
+
   bittyReady() {
+    document.adoptedStyleSheets.push(this.#extraStyles);
     this.api.trigger("syncCheckedTheme");
     this.api.trigger("syncHighContrast");
   }
 
-  changeTheme(ev, _) {
+  getCurrentContrast() {
+    return localStorage.getItem("contrast")
+      ? localStorage.getItem("contrast")
+      : "";
+  }
+
+  getCurrentTheme() {
+    return localStorage.getItem("theme")
+      ? localStorage.getItem("theme")
+      : "auto";
+  }
+
+  setTheme(ev, _) {
     localStorage.setItem("theme", ev.prop("key"));
-    if (ev.prop("key") === "auto") {
-      localStorage.setItem("contrast", "");
-    }
     switchColorStyles();
     this.api.trigger("syncCheckedTheme syncHighContrast");
   }
 
-  getCurrentContrast() {
-    let current = localStorage.getItem("contrast");
-    if (current) {
-      return current;
-    } else {
-      return "";
-    }
-  }
-
-  getCurrentTheme() {
-    let current = localStorage.getItem("theme");
-    if (current) {
-      return current;
-    } else {
-      return "auto";
-    }
-  }
-
-  themeSwitcher(ev, el) {
+  themeSwitcher(_, el) {
     const switcher = this.api.makeElement(this.template("switcher"));
     for (let theme of this.#themes) {
       const subs = [
@@ -80,11 +74,14 @@ export class ThemeSwitcher {
   }
 
   syncHighContrast(_, el) {
+    /*
     if (this.getCurrentTheme() === "auto") {
       el.hidden = true;
     } else {
       el.hidden = false;
     }
+    */
+
     if (this.getCurrentContrast() === "hc-") {
       el.classList.add("active");
     } else {
@@ -103,7 +100,7 @@ export class ThemeSwitcher {
       case "item":
         return `<button
   data-key="KEY" 
-  data-send="changeTheme" 
+  data-send="setTheme" 
   data-receive="syncCheckedTheme" 
 >NAME</button>`;
 
